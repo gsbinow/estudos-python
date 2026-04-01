@@ -1,0 +1,43 @@
+1. Comandos de Navegação e Controle
+Esses controlam a "carcaça" do navegador.
+
+driver.get("url"): Abre o site. É o primeiro comando de quase toda automação.
+
+driver.maximize_window(): Faz a janela ocupar a tela toda (substitui o win + up que você usava).
+
+driver.refresh(): Atualiza a página.
+
+driver.back() e driver.forward(): Volta ou avança no histórico.
+
+driver.quit(): Fecha o navegador e encerra o processo (o oposto do que o detach faz).
+------------------------------------------------------------------------------------------------------
+2. Comandos de Localização (Os "Olhos")
+Para o Selenium interagir, ele precisa achar o elemento. O comando base é o find_element.
+
+By.ID: Busca pelo ID único (o que usamos no seu código). É o mais rápido.
+
+By.NAME: Busca pelo atributo name. Útil em formulários simples.
+
+By.XPATH: É o "caminho de pasta" do elemento. Usa-se quando o botão não tem nome nem ID.
+
+By.CSS_SELECTOR: Busca pelas classes de estilo (muito usado por desenvolvedores front-end).
+------------------------------------------------------------------------------------------------------
+3. Comandos de Interação (As "Mãos")
+Depois de achar o elemento, você precisa dizer o que fazer com ele.
+
+.click(): Clica no botão ou link encontrado.
+
+.send_keys("texto"): Digita o texto dentro de um campo de entrada (Input).
+
+.clear(): Limpa o que estiver escrito em um campo antes de digitar.
+
+.submit(): Envia um formulário (equivale a apertar Enter em alguns casos).
+
+.text: Captura o texto que está escrito em um elemento (útil para ler mensagens de erro ou confirmação).
+
+4. Esperas (O "Cérebro" contra a lentidão)
+Aqui é onde você resolve seu 2º desejo. Existem dois tipos principais:
+
+Implícita (driver.implicitly_wait): Você diz: "Espere até 10s por qualquer coisa antes de dar erro". É global.
+
+Explícita (WebDriverWait): É a mais profissional. Você diz: "Espere especificamente o botão 'Entrar' estar clicável por até 15s".

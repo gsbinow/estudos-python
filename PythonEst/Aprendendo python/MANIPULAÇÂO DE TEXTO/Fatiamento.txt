@@ -1,0 +1,20 @@
+ Uma variavel, quando se trata de textos, além de armazenar espaços, guarda micro espaços.
+O que são micro espaços? Micro espaços sao as unidades que armazenam cada letra, seja ela visivel ou não.
+
+(a contagem comença por 0)
+
+varivel = "Frase da variavel" = essa variavel armazena 17 micro espaços.
+print(variavel)
+
+- Fragemntando com micro variavel:
+Com as micro variaveis é possivel restagatar parte do texto de forma isolada
+
+variavel[9:13] ira exibir das micro 9 ate 12, a 13 não é exibida pois determina onde é o limite
+print(variavel)
+
+#Quantas vezes eiste na frase
+print(fatiamento.count('n'))
+
+#leitura da quantidade total
+print(len(fatiamento))
+print(fatiamento)

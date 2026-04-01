@@ -1,0 +1,32 @@
+listas = [0,1,2,3,4]
+
+ - Listas são mutaveis:
+
+ lista = ['cao','gato','passaro','pato']
+ lista[3] = 'cavalo' (Troca de items)
+
+ = lista = ['cao','gato',c'avalo','pato']
+
+-------------------------------------------------
+
+ - Listas podem adicionar itens:
+  #Adicona ao final da lista
+
+ lista = ['cao','gato','passaro','pato']
+ lista.append('Galinha)
+
+ lista = ['cao','gato','passaro','pato', 'Galinha' ]
+
+-----------------------------------------------
+
+ - Listas podem ser adicionadas em diversas posiçoes:
+ #adiciona a determinada psoição
+
+ lista = ['cao','gato','passaro','pato']
+ lista.insert(0,'piriquito')
+
+ lista = ['piriquito',cao','gato','passaro','pato']
+
+ ----------------------------------------------
+
+ -

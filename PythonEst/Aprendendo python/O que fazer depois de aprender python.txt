@@ -1,0 +1,61 @@
+Sabendo do basico de python você deve pensarter repertório:
+- Projeto de Analise de Dados
+- Projeto de automação
+- Projeto de inteligencia artificial
+- Projeto de sites e sistemas
+
+2 - Integrar todas as ferramentas e sistemas 
+ - Trabalhar com API
+ - Bibliotecas
+
+3 - Trabalhar com banco de dados:
+ - Planilhas, csv, banco de dados.
+
+4 - Grabalhar com versões de código:
+
+5 - Varios dispositivos
+
+6 - Saber ver e resolver erros
+
+-------------------------------------------------
+
+Passo 1 - Criar projetos de verdade:
+- Automação
+
+- Analise de dados
+
+- Projeto de sistemas
+ dicas: Replica de sites, keggle para projeto de dados.
+
+
+Passo 2 - Dominar as ferramentas que as empresas usam
+  #Automação:
+   - Raspagem de dados: BeautifulSoup, Selenium e Playwringht.
+   
+   - Integração de APIs: Requests, REST APIs, testes de integração.
+   
+   - Auromação (RPA): usar pyautogui, keyboard e automação nativa (envio de e-mails, mensagens, planilhas, documentos e outras ferramentas corporativas).
+   
+   obj: WebScraping
+
+
+   #analise de dados:
+  
+   - Pandas e NumPy (Ferramentas de analise)
+  
+   - plotly, matplotlib, seaborn (Ferramentas graficas)
+  
+   - Streamlit (Construção de dashboard)
+
+   - Consultas em SQL   
+  Obj: Puxar dados de bolsas de valores e cotação de moedas em tempo real
+
+ # Projeto de sistemas:
+
+  -Frame world = Django, Flask, FastAPI (Dominar os 3)
+
+  - Banco de dados (ORM)
+
+  - Dominio do processo de segurança e autenticação
+  
+  - Construir algo util e usavel
