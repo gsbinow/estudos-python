@@ -1,5 +1,5 @@
 from wsgiref.types import InputStream
-Faça a soma dos numeros:
+# Faça a soma dos numeros:
 n=(input('digite um valor'))
 print(n)
 n1=(input('digite um valor'))
