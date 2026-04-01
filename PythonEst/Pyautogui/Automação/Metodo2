@@ -1,0 +1,229 @@
+import time
+from functools import wraps
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
+
+usuario = "gbinow"
+senha = "vida2813"
+
+# --- 1. DECORADOR PARA CRONÔMETRO ---
+def cronometrar_etapa(funcao):
+    @wraps(funcao)
+    def wrapper(*args, **kwargs):
+        inicio = time.time()
+        print(f"⌛ Iniciando: {funcao.__name__.replace('_', ' ').upper()}...")
+        
+        resultado = funcao(*args, **kwargs)
+        
+        fim = time.time()
+        duracao = fim - inicio
+        print(f"⏱️ Concluído em: {duracao:.2f}s\n" + "-"*40)
+        return resultado
+    return wrapper
+
+# --- 2. CONFIGURAÇÃO DO ROBÔ ---
+class AutomacaoSuprimentos:
+    def __init__(self):
+        # Configuração para o navegador NÃO fechar sozinho
+        chrome_options = Options()
+        chrome_options.add_experimental_option("detach", True)
+        
+        self.driver = webdriver.Chrome(options=chrome_options)
+        self.wait = WebDriverWait(self.driver, 15) # Espera inteligente de 15s
+
+    @cronometrar_etapa
+    def abrir_portal(self, url):
+        self.driver.get(url) 
+        self.driver.maximize_window()
+    @cronometrar_etapa
+    def realizar_login(self, usuario, senha):
+        campo_usuario = self.wait.until(
+            EC.presence_of_element_located((By.ID, "O54_id-inputEl"))
+        )
+        campo_senha = self.driver.find_element(By.ID, "O58_id-inputEl")
+        botao_entrar = self.driver.find_element(By.ID, "O5C_id-btnIconEl")
+
+        campo_usuario.send_keys(usuario)
+        campo_senha.send_keys(senha)
+        botao_entrar.click()
+
+    @cronometrar_etapa    
+    def apertar_ok(self):
+        botao_ok = self.wait.until(
+            EC.element_to_be_clickable((By.ID, "NXReportButton"))
+        )
+        botao_ok.click()
+    
+    @cronometrar_etapa
+    def acessar_transferencia_saldos(self):
+        botao_transferencia = self.wait.until(
+            EC.presence_of_element_located((By.CLASS_NAME, "TransfernciadeSaldos1"))
+        )
+        self.driver.execute_script("arguments[0].click();", botao_transferencia)
+        
+    @cronometrar_etapa
+    def clicar_novo_botao(self):
+        icone = self.wait.until(
+            EC.presence_of_element_located((By.ID, "O15D_id-btnIconEl"))
+        )
+        self.driver.execute_script("arguments[0].click();", icone)
+    
+    @cronometrar_etapa
+    def clicar_calendario(self):
+        time.sleep(1) # Pausa rápida para a tela estabilizar
+        
+        seletor_css = "div.x-form-date-trigger"
+            
+        botoes_calendario = self.wait.until(
+                EC.visibility_of_all_elements_located((By.CSS_SELECTOR, seletor_css))
+        )
+            
+        botao_alvo = botoes_calendario[0]
+            
+        self.driver.execute_script("arguments[0].click();", botao_alvo)
+
+    @cronometrar_etapa
+    def clicar_hoje(self):    
+        clicar_NESSABOSTA = self.wait.until(
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[13]/div/div[2]/a/span/span/span[2]"))
+        )
+        clicar_NESSABOSTA.click() 
+
+    @cronometrar_etapa
+    def textbox0(self):
+
+        caixas_de_texto = self.wait.until(
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[9]/div[2]/div/div/span/div/div[1]/div/div/div[2]/div[1]/div/span/div/fieldset/div/span/div/fieldset[1]/div/span/div/table[1]/tbody/tr/td[2]/input"))
+        )  
+        caixas_de_texto.click()
+        time.sleep(0.5)
+        caixas_de_texto.send_keys("16") 
+    
+    @cronometrar_etapa
+    def preencher_textboxes1(self):
+    # A lista com os valores que você quer digitar em ordem
+     codigo = ['1', '16', '1']
+    
+    # 1. Encontra a PRIMEIRA caixa (Unidade Gestora de Origem) e clica para focar
+     primeira_caixa = self.wait.until(
+        EC.element_to_be_clickable((By.XPATH, "/html/body/div[9]/div[2]/div/div/span/div/div[1]/div/div/div[2]/div[1]/div/span/div/fieldset/div/span/div/fieldset[1]/div/span/div/table[2]/tbody/tr/td[2]/input"))
+    )  
+     primeira_caixa.click()
+
+     for valor in codigo:
+        # Pega a caixa de texto que está em foco no momento (onde o cursor está piscando)
+        caixa_atual = self.driver.switch_to.active_element
+        
+        # Digita o valor da vez e aperta TAB para pular para a próxima caixa
+        caixa_atual.send_keys(valor, Keys.TAB)
+        
+        # Uma pausa minúscula para dar tempo do sistema da Smar processar o pulo do TAB
+        time.sleep(0.3)
+
+    @cronometrar_etapa
+    def textbox1(self):
+
+        caixas_de_texto = self.wait.until(
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[9]/div[2]/div/div/span/div/div[1]/div/div/div[2]/div[1]/div/span/div/fieldset/div/span/div/fieldset[2]/div/span/div/table[4]/tbody/tr/td[2]/input"))
+        )  
+        caixas_de_texto.click()
+        time.sleep(0.5)
+        caixas_de_texto.send_keys("16")
+    
+    @cronometrar_etapa
+    def preencher_textboxes2(self):
+    # A lista com os valores que você quer digitar em ordem
+     codigo = ['1', '16', '1']
+    
+    # 1. Encontra a PRIMEIRA caixa (Unidade Gestora de Origem) e clica para focar
+     primeira_caixa = self.wait.until(
+        EC.element_to_be_clickable((By.XPATH, "/html/body/div[9]/div[2]/div/div/span/div/div[1]/div/div/div[2]/div[1]/div/span/div/fieldset/div/span/div/fieldset[2]/div/span/div/table[1]/tbody/tr/td[2]/input"))
+    )  
+     primeira_caixa.click()
+
+     for valor in codigo:
+        # Pega a caixa de texto que está em foco no momento (onde o cursor está piscando)
+        caixa_atual = self.driver.switch_to.active_element
+        
+        # Digita o valor da vez e aperta TAB para pular para a próxima caixa
+        caixa_atual.send_keys(valor, Keys.TAB)
+        
+        # Uma pausa minúscula para dar tempo do sistema da Smar processar o pulo do TAB
+        time.sleep(0.3)
+
+    
+
+    # @cronometrar_etapa
+    # def preencher_textboxes2(self):
+    # # A lista com os valores que você quer digitar em ordem
+    #  codigo = ['16', '1', '16', '1']
+    
+    # # 1. Encontra a PRIMEIRA caixa (Unidade Gestora de Origem) e clica para focar
+    #  primeira_caixa = self.wait.until(
+    #     EC.element_to_be_clickable((By.XPATH, "/html/body/div[9]/div[2]/div/div/span/div/div[1]/div/div/div[2]/div[1]/div/span/div/fieldset/div/span/div/fieldset[2]/div/span/div/table[4]/tbody/tr/td[2]/input"))
+    # )  
+    #  primeira_caixa.click()
+
+    # # 2. O laço 'for' vai pegar cada número da sua lista, um por vez
+    #  for valor in codigo:
+    #     # Pega a caixa de texto que está em foco no momento (onde o cursor está piscando)
+    #     caixa_atual = self.driver.switch_to.active_element
+        
+    #     # Digita o valor da vez e aperta TAB para pular para a próxima caixa
+    #     caixa_atual.send_keys(valor, Keys.TAB)
+        
+    #     # Uma pausa minúscula para dar tempo do sistema da Smar processar o pulo do TAB
+    #     time.sleep(0.3)
+
+    
+#------------------------------------------------------------------------------------------------------
+
+
+
+    # @cronometrar_etapa
+    # def transferencia(self):    
+    #     clicar_NESSABOSTA4 = self.wait.until(
+    #         EC.element_to_be_clickable((By.XPATH, "/html/body/div[9]/div[2]/div/div/span/div/div[1]/div/div/div[1]/div[1]/div[2]/div/a[2]/span/span/span[1]"))
+    #     )
+    #     clicar_NESSABOSTA4.click()  
+
+    # @cronometrar_etapa
+    # def adicionar(self):    
+    #     botao_adicionar = self.wait.until(
+    #         EC.element_to_be_clickable((By.XPATH, "/html/body/div[9]/div[2]/div/div/span/div/div[2]/div/span/div/div/div/span/div/a/span/span/span[2]"))
+    #     )
+    #     botao_adicionar.click()
+
+# --- 3. EXECUÇÃO ---
+if __name__ == "__main__":
+    url_portal = 'http://suprimentos.pma.es.gov.br:91/pma/'
+    
+    bot = AutomacaoSuprimentos()
+    
+    print(" INICIANDO PROCESSO DE AUTOMAÇÃO\n" + "="*40)
+    
+    bot.abrir_portal(url_portal)
+    # Lembre-se de não deixar a senha real aqui no código final!
+    bot.realizar_login('gbinow', 'vida2813')
+    bot.apertar_ok()
+    bot.acessar_transferencia_saldos()
+    bot.clicar_novo_botao()
+    bot.clicar_calendario()
+    bot.clicar_hoje()
+    bot.textbox0()
+    bot.preencher_textboxes1()
+    bot.textbox1()
+    bot.preencher_textboxes2()
+    
+    # bot.preencher_textboxes2()
+    # time.sleep(2)
+    # bot.transferencia()
+    # time.sleep(2)
+    # bot.adicionar()
+
+    print("✅ Automação finalizada. O navegador permanecerá aberto.")

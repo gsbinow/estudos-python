@@ -1,0 +1,5 @@
+dia= input('Em que dia você nasceu?')
+mes=input('De qual mês?')
+ano=input('De que ano?')
+print('Então você nasceu no dia',dia,'do',mes,'de',ano,'?')
+prin=('Logo, sua idade é'), (ano) - (2026)

@@ -1,0 +1,28 @@
+Funçoes
+Isola linhas de codigoem uma so função - Uso dinamico para controle de açoes 
+
+Funçoes ja sao existentes: prit input e etc.
+
+Funçoes tambem podem ser criadas. = def.nome da fução ():
+
+Função com variavel inclusa: def nome da função(nome da variavel)
+
+|procedimento xFunção|
+
+procedimento(procidure) - Funçoes sem retorno
+
+Função = Cuclo com retorno
+
+Exceções Comuns em Python:
+
+  - ValueError: A função recebe o tipo correto de dado, mas um valor inadequado.
+  - TypeError: Uma operação é aplicada a um tipo de dado que não a suporta.
+  - IndexError: Tentar acessar uma posição que não existe em uma lista ou sequência.
+  - KeyError: Tentar acessar uma chave que não existe dentro de um dicionário.
+  - ZeroDivisionError: O código tenta fazer uma divisão matemática por zero.
+  - FileNotFoundError: O programa tenta abrir ou ler um arquivo que não existe no caminho indicado.
+  - AttributeError: Tentar usar um método ou atributo que não pertence àquele objeto.
+
+  FUnção lambda: função simples
+  res = lambda x: x*X
+  print(res(3))

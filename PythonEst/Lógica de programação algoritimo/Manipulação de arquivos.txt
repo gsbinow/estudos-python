@@ -1,0 +1,15 @@
+📂 Manipulação de Arquivos em Python
+A manipulação de arquivos baseia-se em três etapas: Abrir, Operar (Ler/Escrever) e Fechar. O uso do comando with é a melhor prática, pois garante que o arquivo seja fechado automaticamente.
+
+1. Modos de Abertura (Flags)
+Ao abrir um arquivo com open('nome.txt', 'modo'), você define o comportamento:
+
+'r' (Read): Modo padrão. Abre para leitura. O arquivo deve existir.
+
+'w' (Write): Abre para escrita. Se o arquivo existir, apaga tudo. Se não, cria um novo.
+
+'a' (Append): Abre para escrita, mas adiciona o texto ao final do arquivo existente.
+
+'x' (Create): Cria o arquivo. Se ele já existir, o Python gera um erro.
+
+'r+' (Read/Write): Abre para ler e escrever ao mesmo tempo.

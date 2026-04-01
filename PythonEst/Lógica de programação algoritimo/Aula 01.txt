@@ -1,0 +1,5 @@
+Introdução a lóica e algoritimos - Aula 01
+
+Algoritimos:
+ Conjunto de instruções a serem seguidas para a realização de uma tarefa a partir da sua necessidade.
+

@@ -1,0 +1,30 @@
+Aula 4 - Algoritimo interativo estrtutura de repetição
+--------------------------------------------------------
+ Estruturas de repetição = Atalhos para não reescrever techos exitentes para execitar uma ação
+ 
+ 
+ Comandos de reptição:
+  while:
+- Repete o blovo de instruçoes enquanto determinada coondição se mantiver verdadeira.
+- caso contrário, ocorre o desvio para a primeiria linha de código após este bloco de repetição.
+ Comando de parada:
+
+ break:
+ Para encerrar de forma forçada uma reetição
+
+ continue: voltar para o cimeço do laço.
+
+Operadores especiais:
++= | x+=1 | x=x+1
+-= | x-=1 | x=x-1
+*= | x*=1 | x=x*1
+/= | x/=1 | x=x/1
+**=| x**=1| X=x**1
+//=| x//=1| x=x//1
+
+
+Etrutura de repetição:
+for i in range (6): - contara do zero ate 5
+for = estrutura de repetição
+range = estrutura de repetição 
+

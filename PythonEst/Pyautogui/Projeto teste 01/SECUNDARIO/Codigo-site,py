@@ -1,0 +1,9 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+# Abre o navegador controlado pelo Python
+driver = webdriver.Chrome()
+driver.get("http://suprimentos.pma.es.gov.br:91/pma/")
+
+# Em vez de clicar em X, Y, ele busca pelo ID "btn-entrar"
+driver.find_element(By.ID, "btn-entrar").click()

@@ -1,0 +1,16 @@
+Algoritimo sequencial:
+ - Sequencia de instruçoes a serem seguidas de forma linear.
+
+Algoritmo de estrutura condicional:
+ - Sua sequencia muda com uma tomada de decisão.
+ - if, elif e else
+
+- if = se.
+- else = se não.
+
+- not = não
+- and = e
+- or = ou 
+
+Condição simples e composta:
+ - 
