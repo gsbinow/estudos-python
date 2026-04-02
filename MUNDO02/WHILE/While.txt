@@ -1,0 +1,12 @@
+ While e For - Diferença:
+
+ For é uma estutura de repetição que precia de um limite.
+ exp:
+  Se você precisar ir de um ponto ao outro, você deve saber qual distancia você deve percorrer ( distancia = limite)
+
+
+
+ While é uma estrutura de repetição infinita, a qual so termina se ouver uma condição.
+
+  wuile = enquanto = condição
+  enquanto não *condição*: = while not *condição*
