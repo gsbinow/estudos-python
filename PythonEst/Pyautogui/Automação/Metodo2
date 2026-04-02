@@ -209,7 +209,7 @@ if __name__ == "__main__":
     
     bot.abrir_portal(url_portal)
     # Lembre-se de não deixar a senha real aqui no código final!
-    bot.realizar_login('gbinow', 'vida2813')
+    bot.realizar_login('gbinow', '######')
     bot.apertar_ok()
     bot.acessar_transferencia_saldos()
     bot.clicar_novo_botao()

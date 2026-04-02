@@ -77,7 +77,7 @@ if __name__ == "__main__":
     
     abrir_navegador("Chrome")
     acessar_url('http://suprimentos.pma.es.gov.br:91/pma/')
-    realizar_login('gbinow', 'vida2813')
+    realizar_login('gbinow', '#######')
     busca_rme()
     
     print("✅ Processo finalizado com sucesso!")
