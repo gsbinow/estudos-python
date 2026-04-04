@@ -98,6 +98,8 @@ while True:
  elif escolha == 's' or escolha == '(s)' or escolha == 'sair':
    print('programa encerrando...')
    break
+ 
+ 
  else:
    print('Opção não encontrada...')
    print('tente novamente', 0.2 ) 

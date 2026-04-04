@@ -10,3 +10,8 @@
 
   wuile = enquanto = condição
   enquanto não *condição*: = while not *condição*
+
+
+ - while True = Enquanto for verdadeiro.
+
+  - break = parar
