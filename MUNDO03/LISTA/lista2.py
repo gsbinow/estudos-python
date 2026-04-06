@@ -106,5 +106,28 @@ def desafio3():
    print(f'\nPrimeira lista: {lista}\n')
    print(f'Lista com valores par: {listaPar}\n')
    print(f'Lista com valores impar: {listaImpar}\n')
+   print('Programa encerrado...')
 
-desafio3()
+def desafio4 ():
+   print( 'obs: Uma expressão é uma frase entre parenteses: "()"')
+
+   '''Verificador se existe ou não. ele ira detextar se a frase dita possui os dois parenteses. 
+   Se, a expressão tiver parenteses no começo ele sera adicionado a uma lista. Se o programa ler no digitado
+   parenteses no final da frase, ele removera da lista. Se no fim a expressão estiver fora da lista, então ela estara correta.'''
+   pilha = []
+   expre = input('Digite uma expressão: ').strip().lower()
+      
+   for caractere in expre:
+         if caractere == '(':
+            pilha.append('(') 
+         elif caractere == ')':
+            if len(pilha) > 0: #Verifica se a lista esta vazia.
+               pilha.pop()
+         else:
+            pilha.append(')')
+            break #Pr encerrar o ciclo
+   if len(pilha) == 0:
+      print('Sua expressao esta correta!')
+   else:
+      print('Sua expressão est errada...')
+desafio4()

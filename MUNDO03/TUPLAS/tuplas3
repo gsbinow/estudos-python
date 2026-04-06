@@ -1,0 +1,17 @@
+# tuplas = Prévia das listas
+def teste1 ():
+    lanche = ('hamburgues','refri','salgado')
+    print(lanche [0])
+    print(lanche [1])
+    print(lanche [2])
+    print(lanche [0:2])
+    print(lanche [0:])
+    print(lanche [-2])
+#tuplas sao imutaveis, diferente das listas
+teste1()
+def teste2 ():
+    lanche = ('hamburgues','refri','salgado')
+    print(len(lanche))
+    for comida in lanche:
+        print(comida) #vai exibir totos os itens da lista ate acabar.
+
