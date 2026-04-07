@@ -8,10 +8,47 @@ def teste1 ():
     print(lanche [0:])
     print(lanche [-2])
 #tuplas sao imutaveis, diferente das listas
-teste1()
+
+
+
 def teste2 ():
     lanche = ('hamburgues','refri','salgado')
     print(len(lanche))
+    print(sorted(lanche))#organizar
     for comida in lanche:
         print(comida) #vai exibir totos os itens da lista ate acabar.
 
+def teste3():
+    a =(1,5,3,6,3,8,4,2)
+    b =(2,3,1,5,4,8)
+    c = a+b
+    print(len(c)) #contar
+    print(c) #exibir
+    print(sorted(c)) #ordenar
+    print(c.count(5)) #tem sim ou não
+    print(c.index(8)) #posição na tupla
+
+def teste4 ():
+    tupla = (0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20)
+    
+    while True:
+        n = int(input('Digite um numero entre 0 a 20: '))
+        if n in tupla:
+            print('você digitou corretamente. programa encerrado.')
+            break
+        else:
+            print('teste novamente')
+
+def teste5():
+    nome = (
+    'Ana', 'Bruno', 'Carla', 'Daniel', 'Eduarda', 'Felipe', 'Gabriel', 
+    'Helena', 'Ícaro', 'Júlia', 'Kevin', 'Larissa', 'Mariana', 'Nícolas', 
+    'Olívia', 'Paulo', 'Raquel', 'Samuel', 'Tatiana', 'Vitor', 'Vanessa', 
+    'Yago', 'Zeca', 'Beatriz', 'Ricardo', 'Sônia', 'Tiago', 'Íris')
+    
+    print(nome[0:5])
+    print(nome[15:20])
+    print('\n',sorted(nome),'\n')
+    print(nome.index('Vitor'))
+
+teste5()

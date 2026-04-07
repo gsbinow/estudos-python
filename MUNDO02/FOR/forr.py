@@ -59,4 +59,33 @@ def teste5 ():
        
    print(s)
 
-teste5()
+
+
+def teste6 (): #teste para saber se um numero é primo ou não
+   n = int(input('n\033[mPor favor, insira um numero inteiro: ')) #pede um numero 
+   total = 0
+   for i in range(1,n+1): # cria a variavel i conta de 1 até o numero imposto
+      
+      if n % i == 0:
+         total += 1  
+         print('\033[33m ',end=' ')
+      else: 
+         print('\033[31m ',end=' ')
+      print(f'{i} ',end=' ')
+   print(f'\n\033[m O numero {n} foi dividido {total} vezes')
+   if total <= 2:
+      print(f'n\033[m O numero {n} é primo!')
+   elif total > 2:
+      print(f'\033[m O numero {n} não é primo')
+   
+
+   
+def teste7 ():
+   n = int(input('Por favor, insira o primeiro termo '))
+   r = int(input('Insira a razão: '))
+   d = n + (10 - 1)*r
+   for i in range(n,d+r,r):
+      print(i, end=' ')
+
+   
+teste7()
